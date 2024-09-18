@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -11,10 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //Recuperar os componentes EditText
-        //Criar uma variável e associar ao componente
-        //Recuperar botão tela
-
         val edtpeso = findViewById<TextInputEditText>(R.id.edt_peso)
         val edtaltura = findViewById<TextInputEditText>(R.id.edt_altura)
 
@@ -23,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
             val pesoStr: String = edtpeso.text.toString()
             val alturaStr: String = edtaltura.text.toString()
-            if (edtpeso.toString().isNotEmpty() || edtaltura.toString().isNotEmpty()){
+            if (pesoStr == "" || alturaStr == ""){
                 Snackbar
                     .make(
                     edtpeso,
@@ -34,8 +31,19 @@ class MainActivity : AppCompatActivity() {
             else {
                 val altura: Float = alturaStr.toFloat()
                 val peso: Float = pesoStr.toFloat()
-                val res_imc: Float = peso / (altura * altura)
-                println(res_imc.toString())
+                val resimc: Float = peso / (altura * altura)
+
+                // Navegr para proxima tela
+                // Criar o layout da proxima tela
+                // Passar resultado para proxima tela
+
+                // Intent - classe do proprio android
+
+                val intent = Intent(this,ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC, resimc)
+                startActivity(intent)
+
+                println(resimc)
             }
         }
     }
