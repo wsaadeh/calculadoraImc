@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         val btnCalcular = findViewById<Button>(R.id.btn_calcular)
 
         btnCalcular.setOnClickListener {
-
+            val pesoStr: String = edtpeso.text.toString()
+            val alturaStr: String = edtaltura.text.toString()
             if (edtpeso.toString().isNotEmpty() || edtaltura.toString().isNotEmpty()){
                 Snackbar
                     .make(
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             }
             else {
-                val altura: Float = edtaltura.text.toString().toFloat()
-                val peso: Float = edtpeso.text.toString().toFloat()
+                val altura: Float = alturaStr.toFloat()
+                val peso: Float = pesoStr.toFloat()
                 val res_imc: Float = peso / (altura * altura)
                 println(res_imc.toString())
             }
