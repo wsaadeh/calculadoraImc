@@ -33,17 +33,13 @@ class MainActivity : AppCompatActivity() {
                 val peso: Float = pesoStr.toFloat()
                 val resimc: Float = peso / (altura * altura)
 
-                // Navegr para proxima tela
-                // Criar o layout da proxima tela
-                // Passar resultado para proxima tela
-
-                // Intent - classe do proprio android
-
                 val intent = Intent(this,ResultActivity::class.java)
                 intent.putExtra(KEY_RESULT_IMC, resimc)
                 startActivity(intent)
 
-                println(resimc)
+                // Cores
+                // Edittext background + icone
+                // Gradiente + icone + titulo + descrição
             }
         }
     }

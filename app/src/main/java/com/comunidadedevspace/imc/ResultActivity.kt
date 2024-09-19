@@ -1,9 +1,11 @@
 package com.comunidadedevspace.imc
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -40,6 +42,18 @@ class ResultActivity : AppCompatActivity() {
         }
 
         tvClassfic.text = classificacao
+        if (tvClassfic.text == "MAGREZA"){
+            tvClassfic.setTextColor(ContextCompat.getColor(baseContext,R.color.red))
+        }else if (tvClassfic.text == "NORMAL"){
+            tvClassfic.setTextColor(ContextCompat.getColor(baseContext,R.color.green))
+        }else if (tvClassfic.text == "SOBREPESO"){
+            tvClassfic.setTextColor(ContextCompat.getColor(baseContext,R.color.yellow))
+        }else if (tvClassfic.text == "OBESIDADE"){
+            tvClassfic.setTextColor(ContextCompat.getColor(baseContext,R.color.red))
+        }else if(tvClassfic.text == "OBESIDADE GRAVE"){
+            tvClassfic.setTextColor(ContextCompat.getColor(baseContext,R.color.red))
+        }
+
 
         println("resultado " + result)
 
